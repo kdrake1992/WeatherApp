@@ -1,0 +1,124 @@
+/* Getting font information */
+@font-face {
+    font-family: 'Roboto';
+    src: url('./Roboto-Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+html {
+  height: 100%;
+
+}
+/* Body */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 100%;
+  background-image: url(./Contour\ Line.svg);
+}
+
+/* Top searchbar */
+.topSearch {
+  background-color: black;
+
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  font-size: 20px;
+}
+
+#searchContainer {
+  position: absolute;
+  right: 10px;
+}
+
+input[type=text] {
+  color: black;
+}
+
+/* Current weather */
+.currentWeather {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.currentWeather #cityName {
+  font-size: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+.currentWeather #bot {
+  display: flex;
+  gap: 20px;
+}
+
+.currentWeather #highLow {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  text-align: center;
+  gap: 10px;
+}
+
+.currentWeather #botRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.currentWeather #botLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+.currentWeather svg {
+  height: 75px;
+}
+
+/* Forecast */
+.forecast {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+
+.forecast .fiveDay {
+  height: 200px;
+  width: 100%;
+  padding: 5px;
+
+  border: 1px solid white;
+}
+
+/* Footer */
+.footer {
+  background-color:  black;
+
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+
+  text-align: center;
+}
