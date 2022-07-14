@@ -58,6 +58,8 @@ input[type=text] {
 .currentWeather {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 50px;
 }
 
@@ -90,6 +92,8 @@ input[type=text] {
 .currentWeather #botLeft {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 
 }

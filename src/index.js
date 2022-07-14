@@ -10,15 +10,17 @@ import '@fortawesome/fontawesome-free/js/brands';
 import {fetchMeByZip, fetchWeather, fetchCurrentWeather, fetchForecast} from './fetch';
 
 // Sorts data received by fetch
-import {currentWeather, futureForecast, displayInfo} from './display';
+import {displayInfo} from './display';
 
 function start() {
     fetchCurrentWeather('Tokyo', 'metric').then(function(response) {
-        currentWeather(response);
-        displayInfo();
+        displayInfo(response, "Metric");
+        searchBar();
     });
 
 }
+
+start();
 
 function searchBar() {
     const search = document.getElementById("userInput");
@@ -26,23 +28,21 @@ function searchBar() {
     if(e.key === 'Enter') {
         fetchCurrentWeather(search.value, "metric").then(function(response) {
             if(response.cod === 200) {
-                currentWeather(response);
+                displayInfo(response, "Metric");
+                searchBar();
             }
             else{
                 console.log('City not found.')
             }
         });
         
-        fetchForecast(search.value, "metric").then(function(response) {
-            if(response.cod === 200) {
-                futureForecast(response);
-            }
-            else{
-                console.log('City not found.')
-            }
-        })
+        // fetchForecast(search.value, "metric").then(function(response) {
+        //     if(response.cod === 200) {
+        //         futureForecast(response);
+        //     }
+        //     else{
+        //         console.log('City not found.')
+        //     }
+        // })
     }
 })};
-
-start();
-// searchBar();
