@@ -31,7 +31,10 @@ function searchBar() {
             if(response.cod === 200) {
                 updateDisplay(response, "Metric");
             }
-        }).catch(alert('City not found.'));
+            else {
+                alert('City not found.')
+            }
+        })
     }
 })};
 
