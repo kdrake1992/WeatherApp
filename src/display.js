@@ -1,4 +1,4 @@
-export {displayInfo};
+export {displayInfo, updateDisplay};
 
 // DOM for the body
 const body = document.body;
@@ -199,4 +199,9 @@ function displayInfo(data, unit) {
     body.appendChild(topBar());    
     body.appendChild(currentWeather(data, unit));  
     body.appendChild(foot()); 
+}
+
+function updateDisplay(data, unit) {
+    main.innerHTML = '';
+    currentWeather(data, unit);
 }

@@ -10,7 +10,7 @@ import '@fortawesome/fontawesome-free/js/brands';
 import {fetchCurrentWeather} from './fetch';
 
 // Sorts data received by fetch
-import {displayInfo} from './display';
+import {displayInfo, updateDisplay} from './display';
 
 function start() {
     fetchCurrentWeather('Tokyo', 'metric').then(function(response) {
@@ -22,19 +22,16 @@ function start() {
 
 start();
 
+// Search bar function
 function searchBar() {
     const search = document.getElementById("userInput");
     search.addEventListener('keypress', e => {
     if(e.key === 'Enter') {
         fetchCurrentWeather(search.value, 'Metric').then(function(response) {
             if(response.cod === 200) {
-                displayInfo(response, "Metric");
-                searchBar();
+                updateDisplay(response, "Metric");
             }
-            else {
-                console.log('City not found.')
-            }
-        });
+        }).catch(alert('City not found.'));
     }
 })};
 
@@ -44,18 +41,13 @@ function toggle() {
         if(e.target.innerHTML === "Metric") {
             e.target.innerHTML = 'Imperial'
             fetchCurrentWeather(document.getElementById('cityName').innerHTML, 'Imperial').then(function(response) {
-                displayInfo(response, 'Imperial');
-                searchBar();
-                toggle();
-
+                updateDisplay(response, 'Imperial');
             });
         }
         else {
             e.target.innerHTML = 'Metric'
             fetchCurrentWeather(document.getElementById('cityName').innerHTML, 'Metric').then(function(response) {
-                displayInfo(response, 'Metric');
-                searchBar();
-                toggle();
+                updateDisplay(response, 'Metric');
             });
         }
     })
