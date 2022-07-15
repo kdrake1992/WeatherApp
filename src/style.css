@@ -36,18 +36,38 @@ body {
   width: 100%;
   padding: 10px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#toggle {
+  grid-column: 1/2;
+  align-self: center;
+  
+  justify-self: left;
+  background-color: rgb(115, 189, 213);
+  color: black;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+#toggle:hover {
+  background-color: lightblue;
+  cursor: pointer;;
 }
 
 #title {
+  grid-column: 2/3;
   font-size: 20px;
+  align-self: center;
+  justify-self: center;
 }
 
 #searchContainer {
-  position: absolute;
-  right: 10px;
+  grid-column: 3/4;
+  font-size: 20px;
+  align-self: center;
+  justify-self: right;
 }
 
 input[type=text] {
@@ -60,7 +80,7 @@ input[type=text] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .currentWeather #cityName {
@@ -99,21 +119,6 @@ input[type=text] {
 }
 .currentWeather svg {
   height: 75px;
-}
-
-/* Forecast */
-.forecast {
-  display: flex;
-  width: 100%;
-  padding: 10px;
-}
-
-.forecast .fiveDay {
-  height: 200px;
-  width: 100%;
-  padding: 5px;
-
-  border: 1px solid white;
 }
 
 /* Footer */
